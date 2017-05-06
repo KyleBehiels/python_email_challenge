@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<title>Example Form</title>
+	<style type="text/css">
+
+		/*I normally use a seperate file for css but seeing as you did not mention anything in regards to the use of
+		a seperate file, I will use integrated css for the sake of clarity. Especially since the amount off styling 
+		required outside of bootstrap is so minimal. */
+		.input-group{
+			margin:5px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+	</style>
+</head>
+<body>
+<div class="page-header text-center">
+	<h1>Aplytica Web-Form<br><small>A simple web form for sending your credentials over email</small></h1>
+</div>
+<!--Begin code for the form. Input elements are of width 5 and centered-->
+<div class="text-center col-sm-12" id="body_wrap">
+	<div class="panel panel-default" id="form_panel">
+		<div class="panel-heading" id="form_panel_heading"><h2>Enter Credentials</h2></div>
+		<div class="panel-body" id="form_panel_body">
+			<div class="input-group col-sm-5" id="username_form_element">
+				<span class="input-group-addon" id="username_lbl">Username: </span>
+				<input class="form-control" placeholder="Username..." type="text" name="username_field" id="username_field">
+			</div>	
+			<div class="input-group col-sm-5" id="password_form_element">
+				<span class="input-group-addon" id="password_lbl">Password: </span>
+				<input class="form-control" placeholder="Password..." type="password" name="password_field" id="password_field">
+			</div>	
+			<button class="btn btn-default" id="form_submit_btn">Submit</button>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
