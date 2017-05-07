@@ -3,10 +3,14 @@ A coding challenge presented by Lee Bergstrand. Simple HTML5 form, styled with b
 
 ----------------QUICKSTART GUIDE----------------
 1. Open variables.txt
-2. Fill in the information based on your email address and provider
+2. Fill in the information based on your email address and provider:
+
 	-SMTP_SERVER the host of your email address (gmail --> smtp.gmail.com)
+	
 	-SMTP_PORT the port that your email address is hosted on (gmail --> 587)
+	
 	-EMAIL & PASSWORD are the email and password that you use to login
+	
 3. Save variables.txt
 4. Host and enjoy!
 
