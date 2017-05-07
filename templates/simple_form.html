@@ -25,9 +25,9 @@
 		<div class="panel-heading" id="form_panel_heading"><h2>Enter Credentials</h2></div>
 		<div class="panel-body" id="form_panel_body">
 			<div class="input-group col-sm-8" id="username_form_element">
-			<form>
+			<form method="POST">
 				<span class="input-group-addon" id="username_lbl">Username: </span>
-				<input class="form-control" placeholder="Username..." type="text" name="username_field" id="username_field">
+				<input class="form-control" placeholder="Username..." type="text" name="username" id="username_field">
 
 				<span class="input-group-addon" id="pass_lbl">Password: </span>
 				<input class="form-control" placeholder="Password..." type="password" name="password" id="password_field">
@@ -38,6 +38,9 @@
 		</div>
 	</div>
 </div>
+
+<span>{{ username }}</span>
+<span>{{ password }}</span>
 
 </body>
 </html>
