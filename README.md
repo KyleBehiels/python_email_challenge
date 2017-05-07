@@ -9,6 +9,7 @@ A coding challenge presented by Lee Bergstrand. Simple HTML5 form, styled with b
 	-EMAIL & PASSWORD are the email and password that you use to login
 3. Save variables.txt
 4. Host and enjoy!
+
 ----------------/QUICKSTART GUIDE----------------
 
 ----------------VARIABLES.TXT FOR POPULAR PROVIDERS----------------
