@@ -9,9 +9,11 @@ A coding challenge presented by Lee Bergstrand. Simple HTML5 form, styled with b
 	-EMAIL & PASSWORD are the email and password that you use to login
 3. Save variables.txt
 4. Host and enjoy!
+
 ----------------/QUICKSTART GUIDE----------------
 
 ----------------VARIABLES.TXT FOR POPULAR PROVIDERS----------------
+
 If your email provider is not listed a quick google search:
 
 ______ smtp configuration 
@@ -21,28 +23,40 @@ ____________________________________________________________________
 Gmail
 ____________________________________________________________________
 EMAIL:youremail@gmail.com
+
 PASSWORD:yourpassword
+
 SMTP_SERVER:smtp.gmail.com
+
 SMTP_PORT:587
 _____________________________________________________________________
 Live/Hotmail
 _____________________________________________________________________
 EMAIL:youremail@live.com
+
 PASSWORD:yourpassword
+
 SMTP_SERVER:smtp.live.com
+
 SMTP_PORT:465
 _____________________________________________________________________
 Yahoo
 _____________________________________________________________________
 EMAIL:youremail@yahoo.com
+
 PASSWORD:yourpassword
+
 SMTP_SERVER:smtp.mail.yahoo.com
+
 SMTP_PORT:465(sometimes 587)
 _____________________________________________________________________
+
 ----------------/VARIABLES.TXT FOR POPULAR PROVIDERS----------------
 
 ----------------DISCLAIMER----------------
+
 This system is no more than a template that can be used to set up a system of retrieving credentials. Nothing is encrypted by default. Use at your own risk.
+
 ----------------/DISCLAIMER----------------
 
 
