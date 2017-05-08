@@ -34,7 +34,7 @@ ______ smtp configuration
 Should get you the information that you need. (_______ is your email provider)
 
 ____________________________________________________________________
-#Gmail
+Gmail
 ____________________________________________________________________
 EMAIL:youremail@gmail.com
 
@@ -44,7 +44,7 @@ SMTP_SERVER:smtp.gmail.com
 
 SMTP_PORT:587
 _____________________________________________________________________
-#Live/Hotmail
+Live/Hotmail
 _____________________________________________________________________
 EMAIL:youremail@live.com
 
@@ -54,7 +54,7 @@ SMTP_SERVER:smtp.live.com
 
 SMTP_PORT:465
 _____________________________________________________________________
-#Yahoo
+Yahoo
 _____________________________________________________________________
 EMAIL:youremail@yahoo.com
 
@@ -73,11 +73,6 @@ _____________________________________________________________________
 This system is no more than a template that can be used to set up a system of retrieving credentials. Nothing is encrypted by default. Use at your own risk.
 
 ----------------/DISCLAIMER----------------
-
-
-
-
-
 
 
 
