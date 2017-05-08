@@ -13,11 +13,11 @@ A coding challenge presented by Lee Bergstrand. Simple HTML5 form, styled with b
 	-EMAIL & PASSWORD are the email and password that you use to login
 	
 3. Save variables.txt
-4. Edit simple_form.html to suit your needs. This implementation handles infinite fields until you excede the size limit of an email.
+4. Edit simple_form.html in templates to suit your needs. This implementation handles infinite fields until you excede the size limit of an email.
 
    Just make sure that you submit the form with the POST method
    
-5. Host the web application.
+5. Host the logic.py web application.
 
 	-Submitted credentials will be mailed as a formatted string in the following format:
 	
