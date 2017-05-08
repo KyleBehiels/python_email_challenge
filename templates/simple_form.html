@@ -21,26 +21,27 @@
 </div>
 <!--Begin code for the form. Input elements are of width 5 and centered-->
 <div class="text-center col-sm-12" id="body_wrap">
-	<div class="panel panel-default" id="form_panel">
+	<div class="panel panel-default text-center" id="form_panel">
 		<div class="panel-heading" id="form_panel_heading"><h2>Enter Credentials</h2></div>
 		<div class="panel-body" id="form_panel_body">
-			<div class="input-group col-sm-8" id="username_form_element">
+			<div class="input-group col-sm-4" id="username_form_element">
 			<form method="POST">
-				<span class="input-group-addon" id="username_lbl">Username: </span>
-				<input class="form-control" placeholder="Username..." type="text" name="username" id="username_field">
-
-				<span class="input-group-addon" id="pass_lbl">Password: </span>
-				<input class="form-control" placeholder="Password..." type="password" name="password" id="password_field">
-
-				<input class="btn btn-default" value="Submit" type="submit" name="submit">
+				<div class="form-group">
+					<label for="username_field">Username</label>
+					<input class="form-control text-center" placeholder="Username..." type="text" name="username" id="username_field">
+				</div>
+				<br><br>
+				<div class="form-group">
+					<label for="password_field">Password</label>
+					<input class="form-control text-center" placeholder="Password..." type="password" name="password" id="password_field">
+				</div>
+					<br><br>
+					<input class="btn btn-default" value="Submit" type="submit" name="submit">
 			</form>
 			</div>	
 		</div>
 	</div>
 </div>
-
-<span>{{ username }}</span>
-<span>{{ password }}</span>
 
 </body>
 </html>
